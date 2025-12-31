@@ -32,6 +32,9 @@ params:
   ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
+  
+  logo: /images/logo.png
+  centerLogo: false
 
 # not sure if this is actually in use, check menu layout
 menu:

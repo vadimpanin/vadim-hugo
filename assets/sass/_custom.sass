@@ -52,9 +52,11 @@ html
   font-family: "Atkinson Hyperlegible", sans-serif
   --sukabutton: #025480
   --sukaback: #dae9f1
+  --sukaborder: #d1d9e0 // #dedede
   &[data-mode="dim"]
     --sukabutton: #79d0ff
     --sukaback: #383c3eAA
+    --sukaborder: #383c3eAA//#3d444d
 
 h1,h2,h3,h4,h5
   font-family: inherit
@@ -96,3 +98,10 @@ code
     background-color: var(--sukaback)
     color: var(--sukabutton)
 
+.post_item
+  //margin-bottom: 3rem
+  //border-radius: 0.5rem
+  border-color: var(--sukaborder)
+  border-style: solid
+  border-width: 0.065rem
+  //background: var(--post-bg)
