@@ -1,0 +1,33 @@
+{{ define "main" }}
+{{ $pages := .Pages }}
+{{ if .IsHome }}
+  {{ $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{ end }}
+
+{{ if eq site.Params.pinFeatured true }}
+  {{ $featured := default 8 site.Params.numberOfPinnedPosts }}
+  {{ $featuredPosts := first $featured (where $pages "Params.featured" true)}}
+  {{ $normalPosts := $pages | symdiff $featuredPosts }}
+  {{ $pages = $featuredPosts | append $normalPosts }}
+{{ end }}
+<div class="grid-inverse wrap content">
+  <div>
+    <!-- Welcome Banner -->
+    <section class="welcome-banner">
+      <h3>Hi, I'm <a href="/about">Vadim Panin</a></h3>
+      <p>I'm a software developer with a strong background in cross-platform development, optimization, and high-load backend systems. Over the years, my work has spanned from low-level performance tuning to large-scale infrastructure design.</p>
+    </section>
+
+    <ul class="posts" id="posts">
+      {{- range (.Paginate $pages).Pages }}
+        {{ partial "excerpt" . }}
+      {{- end }}
+      <li>
+        {{- template "_internal/pagination.html" . }}
+      </li>
+    </ul>
+  </div>
+  {{- partial "sidebar" . }}
+</div>
+
+{{ end }}

@@ -1,0 +1,11 @@
+{{ $img := .Page.Resources.GetMatch (.Get 0) }}
+
+
+{{ $thumb1x := $img.Resize "400x Lanczos q90" }}   {{/* main */}}
+{{ $thumb2x := $img.Resize "800x Lanczos q90" }}  {{/* retina */}}
+
+<img
+  src="{{ $thumb1x.RelPermalink }}"
+  srcset="{{ $thumb1x.RelPermalink }} 1x, {{ $thumb2x.RelPermalink }} 2x"
+  width="{{ $thumb1x.Width }}" height="{{ $thumb1x.Height }}"
+  alt="{{ .Get 1 }}" loading="lazy">

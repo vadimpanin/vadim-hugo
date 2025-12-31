@@ -1,0 +1,98 @@
+
+.welcome-banner
+  background: rgba($theme, 0.08)
+  // Subtle blue tint using post-bg and theme
+  backdrop-filter: blur(15px)
+  border-radius: 0.5em
+  padding: 1em 1.0em
+  margin-bottom: 2em
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04)
+  text-align: left
+  margin-top: 1.5em
+  h1
+    margin: 0 0 0.5em 0
+    font-size: 2.2em
+    color: var(--header-text)
+  a
+    color: #2563eb
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+  p
+    padding: 0.3em 0
+    //font-size: 1.2em
+    color: var(--text)
+
+
+h1,h2,h3,h4,h5
+  padding: 0.6em 0 0.2em 0
+  margin: 0px 0
+
+p
+  padding: 0.25em 0
+
+
+@font-face
+    font-family: Atkinson Hyperlegible
+    font-style: normal
+    font-display: swap
+    font-weight: 400
+    src: url(/fonts/atkinson-hyperlegible-latin-ext-400-normal.woff2) format("woff2"),url(/fonts/atkinson-hyperlegible-latin-ext-400-normal.woff) format("woff")
+    unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF
+
+@font-face
+    font-family: Atkinson Hyperlegible
+    font-style: normal
+    font-display: swap
+    font-weight: 400
+    src: url(/fonts/atkinson-hyperlegible-latin-400-normal.woff2) format("woff2"),url(/fonts/atkinson-hyperlegible-latin-400-normal.woff) format("woff")
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
+
+html
+  font-family: "Atkinson Hyperlegible", sans-serif
+  --sukabutton: #025480
+  --sukaback: #dae9f1
+  &[data-mode="dim"]
+    --sukabutton: #79d0ff
+    --sukaback: #383c3eAA
+
+h1,h2,h3,h4,h5
+  font-family: inherit
+  font-weight: 500
+  padding: 5px 0
+  margin: 15px 0
+  color: var(--header-text)
+  line-height: 1.35
+  &:hover .link
+    opacity: 1
+
+h1
+  font-size: 200%
+  font-weight: 500
+h2
+  font-size: 175%
+h3
+  font-size: 150%
+h4
+  font-size: 125%
+h5
+  font-size: 120%
+h6
+  font-size: 100%
+
+
+code
+  font-size: 85%
+  font-weight: 400
+  overflow-y: hidden
+  display: block
+  font-family: 'Monaco', monospace
+  word-break: break-all
+  padding: 0.25em 0.5em
+  &.noClass
+    color: var(--text)
+    display: inline
+    line-break: anywhere
+    background-color: var(--sukaback)
+    color: var(--sukabutton)
+

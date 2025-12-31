@@ -1,0 +1,66 @@
+baseURL: "https://vincenzo.dev/"
+languageCode: "en" # commented out because search tries to compare it with the page language
+title: "Computationally bound stuff, mostly "
+theme: hugo-clarity
+#module:
+#  imports:
+#    - path: github.com/adityatelange/hugo-PaperMod   # pulls the theme as a Hugo module
+
+outputs:
+  home: [HTML, RSS, JSON]   # RSS for readers, JSON for search
+
+permalinks:
+  posts: "/:year/:month/:slug/"   # neat dated URLs
+
+taxonomies:
+  tag: "tags"
+  category: "categories"
+
+params:
+  enableSearch: true
+  twitter: '@boosted_test'
+  #largeTwitterCard: false
+  # ? description: "A theme based on VMware's Clarity Design System for publishing technical blogs with Hugo."
+  # ? introDescription: "Technologist, perpetual student, teacher, continual incremental improvement."
+
+  # ----- global -----
+  env: production
+  author: "Vadim Panin"
+  description: "Senior ML-Ops & HPC engineer sharing optimization tips."
+  defaultTheme: auto          # light/dark switch follows OS
+  ShowReadingTime: true       # “5 min read” badge on posts
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+
+# not sure if this is actually in use, check menu layout
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 10
+    - identifier: blog
+      name: Blog
+      url: /posts/
+      weight: 20
+    - identifier: cv
+      name: CV
+      url: /cv/
+      weight: 30
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 40
+
+markup:
+  highlight:
+    noClasses: false          # keep CSS classes for Prism/etc.
+    style: github
+
+imaging:
+   quality: 90               # default JPEG/PNG/WebP quality
+   resampleFilter: lanczos
+
+# Disable sections you don’t use (projects, docs, etc.)
+# disableKinds: ["taxonomy", "term"]

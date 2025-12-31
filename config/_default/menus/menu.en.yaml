@@ -1,0 +1,50 @@
+#sectionPagesMenu: main
+main:
+  - identifier: home
+    name: Home
+    url: /
+    weight: 10
+  - identifier: blog
+    name: Blog
+    url: /posts/
+    weight: 20
+  - identifier: cv
+    name: CV
+    url: /cv/
+    weight: 30
+  - identifier: about
+    name: About
+    url: /about/
+    weight: 40
+#  - name: Home
+#    url: ""
+#    weight: -110
+#  - name: Archives
+#    url: post/rich-content/
+#    weight: -109
+#  - name: Links
+#    identifier: Links
+#    weight: -108
+#  - parent: Links
+#    name: LinkedIn
+#    url: https://www.linkedin.com/vadim.panin
+#  - parent: Links
+#    name: Twitter
+#    url: https://x.com/boosted_test
+#  - name: About
+#    url: about/
+#    weight: -107
+social:
+  - name: github
+    type: social
+    weight: 1
+    url: https://github.com/vadimpanin
+  - name: Twitter
+    weight: 2
+    url: https://x.com/boosted_test
+  - name: linkedin
+    weight: 3
+    url: https://www.linkedin.com/in/vadimpanin
+  - name: rss
+    weight: 4
+    url: index.xml
