@@ -1,33 +1,142 @@
-{{ define "main" }}
-{{ $pages := .Pages }}
-{{ if .IsHome }}
-  {{ $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
-{{ end }}
-
-{{ if eq site.Params.pinFeatured true }}
-  {{ $featured := default 8 site.Params.numberOfPinnedPosts }}
-  {{ $featuredPosts := first $featured (where $pages "Params.featured" true)}}
-  {{ $normalPosts := $pages | symdiff $featuredPosts }}
-  {{ $pages = $featuredPosts | append $normalPosts }}
-{{ end }}
-<div class="grid-inverse wrap content">
-  <div>
-    <!-- Welcome Banner -->
-    <section class="welcome-banner">
-      <h3>Hi, I'm <a href="/about">Vadim Panin</a></h3>
-      <p>I'm a software developer with a strong background in cross-platform development, optimization, and high-load backend systems. Over the years, my work has spanned from low-level performance tuning to large-scale infrastructure design.</p>
-    </section>
-
-    <ul class="posts" id="posts">
-      {{- range (.Paginate $pages).Pages }}
-        {{ partial "excerpt" . }}
-      {{- end }}
-      <li>
-        {{- template "_internal/pagination.html" . }}
-      </li>
-    </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VADIM.AI — Thoughts on AI, Engineering & Beyond</title>
+  <meta name="description" content="Personal hub of Vadim — exploring artificial intelligence, software engineering, and the future of technology.">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://vadim.ai/">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vadim.ai/">
+  <meta property="og:title" content="VADIM.AI — Thoughts on AI, Engineering & Beyond">
+  <meta property="og:description" content="Personal hub of Vadim — exploring artificial intelligence, software engineering, and the future of technology.">
+  <meta property="og:image" content="https://vadim.ai/og-image.png">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://vadim.ai/">
+  <meta name="twitter:title" content="VADIM.AI">
+  <meta name="twitter:description" content="Thoughts on AI, Engineering & Beyond">
+  <meta name="twitter:image" content="https://vadim.ai/og-image.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Floating Poster (3D tilted background) -->
+  <div class="poster-scene" id="posterScene">
+    <div class="poster" id="poster">
+      <img 
+        src="/poster.jpg" 
+        alt="" 
+        class="poster-image"
+        aria-hidden="true"
+      >
+      <!-- Poster frame/border effect -->
+      <div class="poster-frame"></div>
+      <!-- Subtle glow behind poster -->
+      <div class="poster-glow"></div>
+    </div>
   </div>
-  {{- partial "sidebar" . }}
-</div>
 
-{{ end }}
+  <!-- Navigation Nucleus (logo + orbit menu) -->
+  <main class="hub">
+    <!-- Logo Button (focusable, toggles menu) -->
+    <button 
+      class="logo-trigger" 
+      id="logoTrigger"
+      aria-expanded="false"
+      aria-controls="navMenu"
+      aria-label="VADIM.AI — Open navigation menu"
+    >
+      <img src="/logo.png" alt="" class="logo-mark" aria-hidden="true">
+    </button>
+
+    <!-- Navigation Menu (revealed on hover/focus/tap) -->
+    <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+      <ul class="nav-list">
+        <li class="nav-item nav-item--blog">
+          <a href="/blog" class="nav-link nav-link--blog">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+            <span>/blog</span>
+          </a>
+        </li>
+        <li class="nav-item nav-item--linkedin">
+          <a href="https://linkedin.com/in/vadimpanin" class="nav-link nav-link--linkedin" target="_blank" rel="noopener noreferrer">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+            <span>LinkedIn</span>
+            <svg class="nav-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+        </li>
+        <!--<li class="nav-item">
+          <a href="/cv" class="nav-link">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+            <span>CV</span>
+          </a>
+        </li>-->
+        <li class="nav-item">
+          <a href="https://x.com/MutableLambda" class="nav-link" target="_blank" rel="noopener noreferrer">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+            <span>X</span>
+            <svg class="nav-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/vadimpanin" class="nav-link" target="_blank" rel="noopener noreferrer">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            <span>GitHub</span>
+            <svg class="nav-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </main>
+
+  <footer class="footer">
+    <span class="footer-text">© 2025 Vadim</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

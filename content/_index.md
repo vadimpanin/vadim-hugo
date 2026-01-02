@@ -1,5 +1,7 @@
 ---
 title: "Vadim Panin"
 date: 2025-07-26
-description: "A sample Hugo homepage with example content."
+draft: false
+url: "/blog"
+description: "Computationally bound stuff, mostly."
 ---

@@ -8,14 +8,14 @@ main:
     name: Blog
     url: /posts/
     weight: 20
-  - identifier: cv
-    name: CV
-    url: /cv/
-    weight: 30
-  - identifier: about
-    name: About
-    url: /about/
-    weight: 40
+#  - identifier: cv
+#    name: CV
+#    url: /cv/
+#    weight: 30
+#  - identifier: about
+#    name: About
+#    url: /about/
+#    weight: 40
 #  - name: Home
 #    url: ""
 #    weight: -110
@@ -30,7 +30,7 @@ main:
 #    url: https://www.linkedin.com/vadim.panin
 #  - parent: Links
 #    name: Twitter
-#    url: https://x.com/boosted_test
+#    url: https://x.com/MutableLambda
 #  - name: About
 #    url: about/
 #    weight: -107
@@ -41,7 +41,7 @@ social:
     url: https://github.com/vadimpanin
   - name: Twitter
     weight: 2
-    url: https://x.com/boosted_test
+    url: https://x.com/MutableLambda
   - name: linkedin
     weight: 3
     url: https://www.linkedin.com/in/vadimpanin

@@ -1,4 +1,4 @@
-baseURL: "https://vincenzo.dev/"
+baseURL: "https://vadim.ai/"
 languageCode: "en" # commented out because search tries to compare it with the page language
 title: "Computationally bound stuff, mostly "
 theme: hugo-clarity
@@ -10,7 +10,7 @@ outputs:
   home: [HTML, RSS, JSON]   # RSS for readers, JSON for search
 
 permalinks:
-  posts: "/:year/:month/:slug/"   # neat dated URLs
+  posts: "/blog/:year/:month/:slug/"   # neat dated URLs
 
 taxonomies:
   tag: "tags"
@@ -18,7 +18,7 @@ taxonomies:
 
 params:
   enableSearch: true
-  twitter: '@boosted_test'
+  twitter: '@MutableLambda'
   #largeTwitterCard: false
   # ? description: "A theme based on VMware's Clarity Design System for publishing technical blogs with Hugo."
   # ? introDescription: "Technologist, perpetual student, teacher, continual incremental improvement."
