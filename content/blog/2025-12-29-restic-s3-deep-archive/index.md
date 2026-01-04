@@ -170,6 +170,19 @@ Restoring using alpha features:
 
 Which means that S3 Glacier Deep Archive is best used as cheap tape storage. It's cheap to keep, but restoring from it should ideally be the last resort.
 
+This is what restore from a cold storage on AWS S3 Glacier looks like:
+```bash
+RESTIC_FEATURES=s3-restore restic restore latest \
+    -o s3.enable-restore=1 -o s3.restore-days=1 -o s3.restore-timeout=48h \
+    --target /path/to/restore_to
+# repository d1669a67 opened (version 2, compression level auto)
+# [0:00] 100.00%  5 / 5 index files loaded
+# restoring snapshot 48c3c04c of [/source/host/path] at 2025-12-29 17:42:43.075569 -0800 -0800 by # user@test-laptop to /path/to/restore_to
+# Info: warming up 174 packs from cold storage, this may take a while...
+# Summary: Restored 15480 files/dirs (3.232 GiB) in 3:45:32, skipped 36 files/dirs 0 B
+```
+Done just in under 4 hours!
+
 > At this moment, there's a restore bug which I reported [here](https://github.com/restic/restic/issues/5659) and created a PR with a fix [here](https://github.com/restic/restic/pull/5660).
 > Once it's merged, everything will work properly.
 

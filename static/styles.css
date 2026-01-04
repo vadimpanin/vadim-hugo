@@ -17,7 +17,7 @@
   --color-vadim-blue-light: #5cbfff;
   --color-ai-white: #ffffff;
   
-  --color-blog-accent: #FFFFFF;
+  --color-blog-accent: #cccccc;
 
   --color-linkedin-accent: #0A66C2;
   
@@ -46,7 +46,7 @@
   /* Poster */
   --poster-height: 110vh;
   --poster-tilt-x: 12deg;
-  --poster-tilt-y: -4deg;
+  --poster-tilt-y: 0deg;
 }
 
 /* Reduced Motion */

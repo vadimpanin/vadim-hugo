@@ -24,7 +24,7 @@
     maxTiltX: 15,      // Max rotation on X axis (degrees)
     maxTiltY: 8,       // Max rotation on Y axis (degrees)
     baseTiltX: 12,     // Default tilt when centered
-    baseTiltY: -4,     // Default tilt when centered
+    baseTiltY: 0,      // Default tilt when centered
     smoothing: 0.08,   // Lerp factor (lower = smoother)
     enabled: true
   };
