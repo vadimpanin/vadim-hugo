@@ -1,7 +1,6 @@
 ---
 title: "Snoralert: Sleep Sound Detection using Machine Learning"
 date: 2026-01-04
-tags: ["sleep", "snoring", "ML"]
 sidebar: false
 ---
 
