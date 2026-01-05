@@ -181,7 +181,7 @@ RESTIC_FEATURES=s3-restore restic restore latest \
 # Info: warming up 174 packs from cold storage, this may take a while...
 # Summary: Restored 15480 files/dirs (3.232 GiB) in 3:45:32, skipped 36 files/dirs 0 B
 ```
-Done just in under 4 hours!
+Done in just under 4 hours!
 
 > At this moment, there's a restore bug which I reported [here](https://github.com/restic/restic/issues/5659) and created a PR with a fix [here](https://github.com/restic/restic/pull/5660).
 > Once it's merged, everything will work properly.
