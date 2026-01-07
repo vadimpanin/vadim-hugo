@@ -36,26 +36,6 @@ params:
   logo: /images/logo.png
   centerLogo: false
 
-# not sure if this is actually in use, check menu layout
-menu:
-  main:
-    - identifier: home
-      name: Home
-      url: /
-      weight: 10
-    - identifier: blog
-      name: Blog
-      url: /blog/
-      weight: 20
-    - identifier: cv
-      name: CV
-      url: /cv/
-      weight: 30
-    - identifier: about
-      name: About
-      url: /about/
-      weight: 40
-
 markup:
   highlight:
     noClasses: false          # keep CSS classes for Prism/etc.

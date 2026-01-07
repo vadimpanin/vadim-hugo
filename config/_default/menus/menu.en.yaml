@@ -6,7 +6,7 @@ main:
     weight: 10
   - identifier: blog
     name: Blog
-    url: /posts/
+    url: /blog/
     weight: 20
 #  - identifier: cv
 #    name: CV
