@@ -1,6 +1,6 @@
 baseURL: "https://vadim.ai/"
 languageCode: "en" # commented out because search tries to compare it with the page language
-title: "Computationally bound stuff, mostly "
+title: "Vadim Panin"
 theme: hugo-clarity
 #module:
 #  imports:
