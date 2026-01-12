@@ -92,17 +92,23 @@ For our case - **Linux Mint 22.1 XFCE**[^mint] - the base is Ubuntu 24.04 (Noble
 sudo add-apt-repository -y ppa:saxl/xrdp-egfx
 sudo apt update
 
+# Install xrdp and xorgxrdp
+sudo apt install -y xrdp-egfx xorgxrdp-egfx
+
 # Check if xrdp is running
 systemctl status xrdp
 
 # Optional: If xrdp service is not running, enable it
 sudo systemctl enable --now xrdp
 
+# Now if you connect via Remote Desktop to the machine you should see Xorg session screen
+
 # Optional: Normally during xrdp installation `/etc/xrdp/sesman.ini` gets updated
 # with proper `DESKTOP_SESSION` identifier. For example:
 #   `xfce` for xfce
 #   `ubuntu-xorg` for gnome
-# If it didn't happen, we can explicitly override it with proper binary. For XFCE:
+# If you see an error after trying to start a new session with your username and password,
+# we can explicitly override it with proper binary. For XFCE:
 echo "xfce4-session" > ~/.xsession
 
 # At this point you should be able to connect remotely using your RDP client,
