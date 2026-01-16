@@ -41,7 +41,7 @@ params:
   comments: true
   giscusRepo: "vadimpanin/vadim-hugo"
   giscusRepoId: "R_kgDOQxifcw"
-  giscusCategory: "Blog"
+  giscusCategory: "General"
   giscusCategoryId: "DIC_kwDOQxifc84C1Bi3"
   giscusMapping: "pathname"
   giscusReactionsEnabled: "0"
