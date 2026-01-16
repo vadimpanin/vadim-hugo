@@ -8,6 +8,10 @@ main:
     name: Blog
     url: /blog/
     weight: 20
+  - identifier: snoralert
+    name: SnorAlert
+    url: /snoralert/
+    weight: 20
 #  - identifier: cv
 #    name: CV
 #    url: /cv/

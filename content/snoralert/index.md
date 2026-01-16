@@ -32,6 +32,14 @@ SnorAlert is a personal wellness app that uses on-device machine learning to det
 - Optional session logging and optional audio sample saving for personal review
 - Fully configurable detection sensitivity and alert settings
 
+## How to install
+
+SnorAlert is currently available as a beta through Apple TestFlight.
+
+[Install the app on your iPhone or iPad](https://testflight.apple.com/join/JjMdFcrN)
+
+Apple Watch support included.
+
 ---
 
 # Privacy Policy
