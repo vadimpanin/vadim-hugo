@@ -36,6 +36,18 @@ params:
   logo: /images/logo.png
   centerLogo: false
 
+  # giscus
+  giscus: true
+  comments: true
+  giscusRepo: "vadimpanin/vadim-hugo"
+  giscusRepoId: "R_kgDOQxifcw"
+  giscusCategory: "Blog"
+  giscusCategoryId: "DIC_kwDOQxifc84C1Bi3"
+  giscusMapping: "pathname"
+  giscusReactionsEnabled: "0"
+  giscusTheme: "preferred_color_scheme"
+  giscusLang: "en"
+
 markup:
   highlight:
     noClasses: false          # keep CSS classes for Prism/etc.
